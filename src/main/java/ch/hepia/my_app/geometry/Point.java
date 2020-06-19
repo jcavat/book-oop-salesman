@@ -1,4 +1,4 @@
-package ch.hepia.geometry;
+package ch.hepia.my_app.geometry;
 
 public class Point {
     private final double x; // réf. constante

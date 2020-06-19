@@ -1,12 +1,12 @@
-package ch.hepia.optimization;
+package ch.hepia.my_app.optimization;
 
-import ch.hepia.geometry.Point;
+import ch.hepia.my_app.geometry.Point;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NearesNeighbourProblem {
-    private List<Point> points = new ArrayList<>();
+public class NearestNeighbourProblem {
+    private final List<Point> points = new ArrayList<>();
 
     public void addPoint(Point point) {
         this.points.add(point);
@@ -25,18 +25,21 @@ public class NearesNeighbourProblem {
         if( this.points.isEmpty() ) {
             throw new IllegalStateException("A solution must contain at least one point");
         }
-        List<Point> sequence = new ArrayList<>();
-        Point ref = this.points.remove(0);
+
+        final List<Point> sequence = new ArrayList<>();
+        final List<Point> localPoints = new ArrayList<>(this.points); // copy the original list
+
+        Point ref = localPoints.remove(0);
         sequence.add(ref);
-        while( !this.points.isEmpty() ) {
-            int nearestIndex = nearestIndex(ref, this.points);
-            ref = this.points.remove(nearestIndex);
+        while( !localPoints.isEmpty() ) {
+            final int nearestIndex = nearestIndex(ref, localPoints);
+            ref = localPoints.remove(nearestIndex);
             sequence.add(ref);
         }
-        return new Solution(new ArrayList<>(sequence));
+        return new Solution(sequence);
     }
 
-    private int nearestIndex(Point ref, List<Point> remaining) {
+    static int nearestIndex(Point ref, List<Point> remaining) {
         assert !remaining.isEmpty();
         double minDistance = Double.MAX_VALUE;
         int index = 0;

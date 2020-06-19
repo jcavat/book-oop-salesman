@@ -1,6 +1,8 @@
-package ch.hepia.optimization;
+package ch.hepia.my_app.optimization;
 
-        import ch.hepia.geometry.Point;
+        import ch.hepia.my_app.geometry.Point;
+
+        import java.util.ArrayList;
         import java.util.List;
 
 public class Solution {
@@ -22,5 +24,9 @@ public class Solution {
         }
         res += ref.distanceWith( this.sequence.get(0) ); // finish the travelling... go home
         return res;
+    }
+
+    public List<Point> sequence() {
+        return new ArrayList<>(this.sequence); // copy the list, don't give my reference !
     }
 }
