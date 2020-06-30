@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NearestNeighbourProblemTest {
+class NearestNeighbourProblemTest {
 
     @Test
     void testSolutionWithoutPoints() {
