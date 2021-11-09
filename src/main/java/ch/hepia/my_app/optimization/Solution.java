@@ -1,9 +1,9 @@
 package ch.hepia.my_app.optimization;
 
-        import ch.hepia.my_app.geometry.Point;
+import ch.hepia.my_app.geometry.Point;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
     private final List<Point> sequence;
